@@ -20,6 +20,7 @@ class Parameter(SQLBase):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(20))
+    instrument_id = Column(Integer, ForeignKey('instruments.id'))
 
 
 class Datum(SQLBase):
@@ -31,7 +32,7 @@ class Datum(SQLBase):
     date = Column(DateTime)
 
 
-class DataStatus(SQLBase):
+class DatumStatus(SQLBase):
     __tablename__ = 'datastatus'
 
     id = Column(Integer, primary_key=True)
